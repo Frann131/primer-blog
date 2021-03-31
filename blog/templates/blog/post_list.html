@@ -1,39 +1,10 @@
-{% load static %}
- <html>
-    <head>
-      <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Blog de Fran</a></h1>
-                <div class="post">
-                    <p>publicado: {{ post.published_date }}</p>
-                    <h2><a href="">{{ post.title }}</a></h2>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </div>
-        </div>
 
-        {% block content %}
-        <div class="content container">
-          <div class="row">
-              <div class="col-md-8">
-                  {% for post in posts %}
-                      <div class="post">
-                          <div class="date">
-                              <p>publicado: {{ post.published_date }}</p>
-                          </div>
-                          <h2><a href="">{{ post.title }}</a></h2>
-                          <p>{{ post.text|linebreaksbr }}</p>
-                      </div>
-                  {% endfor %}
-              </div>
-          </div>
+{% for post in posts %}
+    <div class="post">
+        <div class="date">
+            <p>publicado: {{ post.published_date }}</p>
         </div>
-        {% endblock %}
-
-    </body>
-</html>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
